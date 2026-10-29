@@ -8,7 +8,7 @@ public class AdvancedMenuController : MonoBehaviour
     [Header("UI Panels (Canvas Groups)")]
     public CanvasGroup mainMenuPanel;
     public CanvasGroup settingsPanel;
-    public CanvasGroup levelSelectPanel;
+    //public CanvasGroup levelSelectPanel;
     public CanvasGroup skinsPanel;
 
     [Header("Settings UI")]
@@ -20,7 +20,7 @@ public class AdvancedMenuController : MonoBehaviour
         // إظهار القائمة الرئيسية وإخفاء باقي القوائم فوراً عند تشغيل اللعبة
         SetPanelState(mainMenuPanel, true);
         SetPanelState(settingsPanel, false);
-        SetPanelState(levelSelectPanel, false);
+        //SetPanelState(levelSelectPanel, false);
         SetPanelState(skinsPanel, false);
 
         // إعطاء قيمة مبدئية لشريط الصوت
@@ -49,10 +49,10 @@ public class AdvancedMenuController : MonoBehaviour
         StartCoroutine(FadeTransition(mainMenuPanel, settingsPanel));
     }
 
-    public void OnLevelSelectClicked()
-    {
-        StartCoroutine(FadeTransition(mainMenuPanel, levelSelectPanel));
-    }
+    //public void OnLevelSelectClicked()
+    //{
+    //    StartCoroutine(FadeTransition(mainMenuPanel, levelSelectPanel));
+    //}
 
     public void OnSkinsClicked()
     {
@@ -63,7 +63,7 @@ public class AdvancedMenuController : MonoBehaviour
     {
         // معرفة أي لوحة مفتوحة حالياً لإخفائها والرجوع للرئيسية
         if (settingsPanel.alpha > 0) StartCoroutine(FadeTransition(settingsPanel, mainMenuPanel));
-        else if (levelSelectPanel.alpha > 0) StartCoroutine(FadeTransition(levelSelectPanel, mainMenuPanel));
+        //else if (levelSelectPanel.alpha > 0) StartCoroutine(FadeTransition(levelSelectPanel, mainMenuPanel));
         else if (skinsPanel.alpha > 0) StartCoroutine(FadeTransition(skinsPanel, mainMenuPanel));
     }
 
